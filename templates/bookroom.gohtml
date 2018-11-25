@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mia Resort</title>
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+  </head>
+  <body>
+	<nav class="header-nav">
+	  <div class="header-nav-left">
+	    <a href="/" id="nav-logo-link">  
+	      <span id="nav-logo-text">Mia Resort</span>  
+	    </a>
+	  </div>
+	</nav>
+	<section id="home-container">
+		<form method="post" action="/reserve" id="reserve_room_form">
+			{{ if .Error }}
+			<div id="reservation_error_box">
+			{{ .Error }}
+			</div>
+			{{ end }}
+			<div class="form_box">	        	
+	          <input label="First Name" placeholder="First Name" 
+	              name="firstName" type="text" class="form-input" />
+	          <input label="Last Name" placeholder="Last Name" name="lastName"
+	               type="text" class="form-input" />
+			</div>
+			<div class="form_box">				
+	          <input label="Email" placeholder="Email" name="email"
+	               type="text" class="form-input" />
+	          <input label="Billing Address" placeholder="Billing Address" name="billingAddr"
+	               type="text" class="form-input" />
+			</div>
+			<div class="form_box">	               	               
+				<input label="Credit Card Number" placeholder="Credit Card Number" name="creditCard"
+				   type="text" class="form-input" />
+				<input label="Phone Number" placeholder="Phone Number" name="phoneNum"
+			type="text" class="form-input" />	    
+            </div>
+            <div class="form_box">
+				<label>		               
+				<input type="date" id="startDate" name="startDate"
+					 value="2018-11-29" min="2018-11-29" max="2019-12-31">
+				<input type="date" id="endDate" name="endDate"
+					 value="2018-11-29" min="2018-11-29" max="2019-12-31">      				 
+			</div>
+			<div class="form_box">               
+	       	 	<button type="submit" class="form-btn">Book Room</button>
+       	 	</div>
+       	 	<input type="hidden" name="roomType" value="{{.RoomType}}">
+       	 	<input type="hidden" name="roomView" value="{{.RoomView}}">
+       	 	<div class="form_box">
+		        <a href="/">
+		          <button type="button" class="form-btn" id="home-view-stream-btn"> 
+		            Back to Main
+	              </button>
+		        </a>
+	    	</div>
+        </form>				
+	</section>
+
+  </body>
+  </html>

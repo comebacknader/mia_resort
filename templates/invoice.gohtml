@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mia Resort</title>
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+  </head>
+  <body>
+	<nav class="header-nav">
+	  <div class="header-nav-left">
+	    <a href="/" id="nav-logo-link">  
+	      <span id="nav-logo-text">Mia Resort</span>  
+	    </a>
+	  </div>
+	</nav>
+	<section id="home-container">
+		<div class="invoice_box">
+			<h1> Invoice </h1>
+		</div>
+		<div id="reservation_info_box">
+			<h1> Reservations </h1>
+			<p> Reservation # {{ .ResInfo.ReserveNum }} - <em>{{ .ResInfo.StartDate }} - {{ .ResInfo.EndDate }}</em> - {{ .ResInfo.RoomType }}:{{ .ResInfo.ViewName }}      <strong> ${{ .ResInfo.Charge }} </strong></p>
+		</div>
+		<div id="reservation_info_box">
+			<h1> Services Used </h1>
+		{{ range $index, $element := .ServicesUsed}}
+			<p> {{ $element.Name }} - <strong> ${{ $element.Price }} </strong></p>
+		{{ end }}	
+		</div>		
+   	 	<div class="form_box">
+	        <a href="/">
+	          <button type="button" class="form-btn" id="home-view-stream-btn"> 
+	            Back to Main
+              </button>
+	        </a>
+    	</div>		
+	</section>
+
+  </body>
+  </html>

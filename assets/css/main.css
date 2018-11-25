@@ -1,0 +1,143 @@
+html {
+  height: 100%; 
+}
+
+body {
+  background-color: white;
+  height: 100%;
+  margin: 0px; 
+}
+
+.header-nav {
+	display:flex;
+	flex-direction:row;
+	width:100%;
+	height:50px;
+	background-color:#40c9e5;
+	color:white;
+	justify-content:space-between;
+	box-sizing:border-box;
+	padding:5px 10px 5px 10px;
+	border-bottom:1px solid lightgray;
+}
+
+.header-nav-left {
+	display:flex;
+}
+
+#nav-logo-text {
+	align-self:center;
+	font-family: "Helvetica";
+	color:white;
+	text-decoration: none;
+	margin-left:10px;
+	font-size:20px;	
+}
+
+#nav-logo-link {
+	font-family: "Helvetica";
+	color:white;
+	text-decoration: none;
+	align-self:center;
+}
+
+#home-container {
+  background-color: white;
+  height: 95vh;
+  display: flex;
+  flex-direction: column; 
+}
+
+.home-buttons-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center; 
+}
+
+.form-btn {
+  border: 1px solid #d7dae0;
+  background-color: #d7dae0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 16px;
+  color: black;
+  width:300px;
+  margin-top: 10px;
+  white-space: normal;
+  box-sizing: border-box;
+  transition: background-color 0.5s ease;
+  text-decoration: none; }
+
+.form-btn:hover {
+  background-color: #bec1c6;
+  cursor: pointer; }
+
+#home-view-stream-btn {
+margin-top: 10px;
+margin-bottom: 5px;
+box-sizing: border-box;
+align-self: center; }
+
+.form_box {
+align-items: center;
+align-self: center; 
+}
+
+.form-input {
+	padding:10px;
+	margin:10px;
+}
+
+#reserve_room_form {
+	display:flex;
+	flex-direction:column;
+	align-self: center;
+}
+
+#reservation_error_box {
+	width:300px;
+	border-color: red;
+	background-color:white;
+	color:red;
+	text-align:center;
+	padding:5px;
+}
+
+#reservation_status_text {
+	text-align:center;
+}
+
+#reservation_info_box {
+	display:flex;
+	flex-direction:column;
+	text-align:center;
+	font-family:"Helvetica";
+}
+
+#add_service_form {
+	display:flex;
+	flex-direction:row;
+	align-self: center;
+	align-items:center;
+}
+
+#add_service_btn {
+	border:1px solid #40c9e5;
+	background-color:#40c9e5;
+	color:white;
+	margin-left:5px;
+}
+
+#add_service_btn:hover {
+	cursor:pointer;
+}
+
+.invoice_box {
+	display:flex;
+	flex-direction:column;
+	text-align:center;
+	font-family:"Helvetica";
+}

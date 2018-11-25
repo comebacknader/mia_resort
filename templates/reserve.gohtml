@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mia Resort</title>
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+  </head>
+  <body>
+	<nav class="header-nav">
+	  <div class="header-nav-left">
+	    <a href="/" id="nav-logo-link">  
+	      <span id="nav-logo-text">Mia Resort</span>  
+	    </a>
+	  </div>
+	</nav>
+	<section id="home-container">
+		{{ range $index, $element := .}}
+		<div class="home-buttons-box">
+			<a href="/reserve/{{$element.RoomTypeName}}/{{$element.ViewName}}/book">
+				<button type="button" class="form-btn" id="home-view-stream-btn"> 
+					{{$element.RoomTypeName}} - {{ $element.ViewName }} - ${{ $element.Price }}
+				</button>
+			</a>
+		</div>
+		{{ end }}				
+	</section>
+
+  </body>
+  </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mia Resort</title>
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+  </head>
+  <body>
+	<nav class="header-nav">
+	  <div class="header-nav-left">
+	    <a href="/" id="nav-logo-link">  
+	      <span id="nav-logo-text">Mia Resort</span>  
+	    </a>
+	  </div>
+	</nav>
+	<section id="home-container">
+		<div id="reserve_room_form">
+			<div class="form_box">	        	
+	          <div id="reservation_status_text">
+	          	<h1> Reservation Successful!</h1>
+	          	<p> Your Reservation ID # is {{ . }} </p>
+			</div>
+			<div class="form_box">               
+		        <a href="/services/add">
+		          <button type="button" class="form-btn" id="home-view-stream-btn"> 
+		            Add Services
+	              </button>
+		        </a>
+       	 	</div>
+			<div class="form_box">               
+		        <a href="/invoice/{{.}}">
+		          <button type="button" class="form-btn" id="home-view-stream-btn"> 
+		            View Invoice
+	              </button>
+		        </a>
+       	 	</div>       	 	
+       	 	<div class="form_box">
+		        <a href="/">
+		          <button type="button" class="form-btn" id="home-view-stream-btn"> 
+		            Back to Main
+	              </button>
+		        </a>
+	    	</div>
+        </div>				
+	</section>
+
+  </body>
+  </html>

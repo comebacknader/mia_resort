@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mia Resort</title>
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+  </head>
+  <body>
+	<nav class="header-nav">
+	  <div class="header-nav-left">
+	    <a href="/" id="nav-logo-link">  
+	      <span id="nav-logo-text">Mia Resort</span>  
+	    </a>
+	  </div>
+	</nav>
+	<section id="home-container">
+		<div id="reservation_info_box">
+			<h1> Services </h1>
+			{{ range $index, $element := .}}
+			<form method="post" action="/addService" id="add_service_form">
+			<p> {{ $element.Name }} | ${{ $element.Price }}</p>
+   	 		<input type="hidden" name="serviceID" value="{{$element.ServiceID}}">
+   	 		<input type="hidden" name="charge" value="{{$element.Price}}">
+   	 		<input type="hidden" name="guestID" value="{{$element.GuestID}}">
+			<button type="submit" class="" id="add_service_btn">
+				Add
+			</button>
+			</form> 
+			{{ end }}
+			</div>
+   	 	<div class="form_box">
+	        <a href="/">
+	          <button type="button" class="form-btn" id="home-view-stream-btn"> 
+	            Back to Main
+              </button>
+	        </a>
+    	</div>		
+	</section>
+
+  </body>
+  </html>
