@@ -21,17 +21,17 @@
 			<div class="form_box">	        	
 	          <div id="reservation_status_text">
 	          	<h1> Reservation Successful!</h1>
-	          	<p> Your Reservation ID # is {{ . }} </p>
+	          	<p> Your Reservation ID # is {{ .ReserveNum }} </p>
 			</div>
 			<div class="form_box">               
-		        <a href="/services/add">
+		        <a href="/services/add/{{.GuestID}}">
 		          <button type="button" class="form-btn" id="home-view-stream-btn"> 
 		            Add Services
 	              </button>
 		        </a>
        	 	</div>
 			<div class="form_box">               
-		        <a href="/invoice/{{.}}">
+		        <a href="/invoice/{{.GuestID}}">
 		          <button type="button" class="form-btn" id="home-view-stream-btn"> 
 		            View Invoice
 	              </button>
