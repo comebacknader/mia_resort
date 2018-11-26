@@ -4,14 +4,15 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/julienschmidt/httprouter"
 	"html/template"
 	"log"
 	"net/http"
 	"os"
 	"strconv"
 	"time"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/julienschmidt/httprouter"
 )
 
 var tpl *template.Template
@@ -482,10 +483,14 @@ func getInvoice(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
 	firstName := req.FormValue("firstName")
 	lastName := req.FormValue("lastName")
 	var guestID int
-	err := db.QueryRow(`SELECT guestID FROM Guest WHERE firstName=? AND lastName=?`,
+	err := db.QueryRow("SELECT getGuestID(?, ?)",
 		firstName, lastName).Scan(&guestID)
-
-	http.Redirect(w, req, "/invoice/"+strconv.Itoa(guestID), http.StatusSeeOther)
+	if guestID == -1 {
+		// display "This guest does not exist" - something like that
+		//
+	} else {
+		http.Redirect(w, req, "/invoice/"+strconv.Itoa(guestID), http.StatusSeeOther)
+	}
 
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
