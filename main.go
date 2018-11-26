@@ -179,6 +179,11 @@ func GetBookRoom(w http.ResponseWriter, req *http.Request, ps httprouter.Params)
 	return
 }
 
+type StatusInfo struct {
+	GuestID    int
+	ReserveNum int
+}
+
 func PostReservation(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
 	if req.Method != http.MethodPost {
 		http.Error(w, http.StatusText(405), http.StatusMethodNotAllowed)
@@ -275,9 +280,13 @@ func PostReservation(w http.ResponseWriter, req *http.Request, _ httprouter.Para
 		fmt.Println(err.Error())
 	}
 
+	statInfo := StatusInfo{}
+	statInfo.GuestID = guest.guestID
+	statInfo.ReserveNum = reserveNum
+
 	// Redirect to /status with reservation information
 	w.WriteHeader(200)
-	err = tpl.ExecuteTemplate(w, "status.gohtml", reserveNum)
+	err = tpl.ExecuteTemplate(w, "status.gohtml", statInfo)
 
 	if err != nil {
 		fmt.Println(err.Error())
